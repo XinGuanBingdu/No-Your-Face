@@ -1,0 +1,35 @@
+<title>幸福倒计时</title>
+<div style="text-align:center;">
+  <h2>距离2023年2月13日还有：</h2>
+  <p id="countdown" style="font-size: 36px;"></p>
+</div>
+<script>
+  var countDownDate = new Date("February 13, 2023 00:00:00");
+  var x = setInterval(function() {
+    var now = new Date().getTime();
+    var distance = countDownDate - now;
+   
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+   
+    document.getElementById("countdown").innerHTML = days + "天 " + hours + "时 "
+    + minutes + "分 " + seconds + "秒 ";
+
+    document.body.style.backgroundColor = `hsl(${360 * (distance % (1000 * 60)) / 1000},100%,50%)`;
+    
+    if (distance < 0) {
+      clearInterval(x);
+      document.getElementById("countdown").innerHTML = "你的死期到了！";
+    }
+  }, 1000);
+</script>
+<div style="text-align:center;">
+<h4>每秒改变一次背景颜色</h4>
+<h5>说好2月20号开学结果13号开学是吧，丢光你的脸</h5>
+<h6>下面的视频有声音</h6>
+<video src="\丢光你的脸.mp4" height="480" width="640" autoplay loop controls>
+    <p>什么浏览器连视频都看不了</p>
+</video>
+</div>
